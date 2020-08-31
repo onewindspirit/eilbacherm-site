@@ -1,0 +1,235 @@
+/*Global Custom Properties*/
+:root{
+  --background-color: whitesmoke; /*background color for the entire page*/
+  --body-font: 'Roboto', sans-serif; /*primary font used for body text, etc.*/
+  --body-color: dimgray; /*color for body text, etc.*/
+  --title-font: 'Montserrat', sans-serif; /*secondary font used for headers, title, etc.*/
+  --title-color: black; /*color for title font, etc.*/
+  --link-color: steelblue; /*color for links, special attention, etc.*/
+  --highlight-color: springgreen; /*rollover color for navbar*/
+  font-size:62.5%; /*sets base font size; rest of font units scale from this*/
+}
+
+html{
+  background-color:var(--background-color); /*set background color for the whole page*/
+}
+
+/*holds all page contents*/
+.wrapper{
+  display: grid; /*initiate CSS Grid*/
+  margin: auto; /*center item*/
+  width: calc(75vw); /*sets width to % of the view width*/
+  min-width: 945px; /*set up better scaling with media queries*/
+  grid-template-columns: 20%; /*sets width for each column*/
+  grid-gap:5px;
+}
+
+/*main area where all unique page info is rendered*/
+.canvas{
+  /*background-color: var(--background-color);*/
+  grid-column-start:2;
+}
+.canvas div{
+  object-fit:contain;
+  width:100%;
+  padding:2px;
+}
+.canvas p{
+  color: var(--body-color);
+  font-family: var(--body-font);
+  font-weight: 400;
+  font-size: 1.5rem;
+  padding:2px;
+  margin:0px;
+  padding-top:10px;
+  text-align:justify;
+}
+.canvas .p-small{
+  color: var(--body-color);
+  font-family: var(--body-font);
+  font-weight: 400;
+  font-size: 1.2rem;
+  padding:2px;
+  margin-top:0px;
+  margin-bottom:0px;
+  padding-left:.5rem;
+  margin-left:0px;
+}
+
+.canvas a{
+  color:var(--link-color);
+  text-decoration:none;
+}
+
+/*headings*/
+.canvas h1{  /*heading for Videos and Projects pages*/
+  margin:0;
+  margin-top:10px;
+  color: var(--title-color);
+  font-family: var(--title-font);
+  font-weight: 700;
+  font-size: 2em;
+  padding:2px;
+  text-align:center
+}
+.canvas h2{ /*heading for Info page*/
+  color: var(--title-color);
+  font-family: var(--title-font);
+  font-weight: 900;
+  font-size: 1.6em;
+  padding:2px;
+  text-align:justify;
+}
+.canvas h3{ /*heading for Dates page*/
+  color: var(--body-color);
+  font-family: var(--title-font);
+  font-weight: 700;
+  font-size: 1.2rem;
+  padding-left:.5rem;
+  margin-bottom:0px;
+  margin-left:0px;
+}
+
+/*canvas content styling*/
+
+/*styles for image/video grids on project pages*/
+.row {
+  display: flex;
+  padding: 0 4px;
+  justify-content: center;
+}
+.column {
+  flex: 50%;
+  max-width: 50%;
+  padding: 0 2px;
+}
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+}
+.info-column {
+  flex: 100%;
+  max-width: 50%;
+  padding: 0 2px;
+}
+/*NEEDS FIX*/
+.column iframe {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+}
+.center-vid{/*Use for one video centered on page*/
+  width:100%;
+  max-width:640px;
+  min-width:560px;
+  height:100%;
+  max-height:385px;
+  min-height:340px;
+  margin-left:auto;
+  margin-right:auto;
+  display:block;
+}
+
+/*navbar styles*/
+.navbar{
+  display:block;
+  background-color: var(--background-color);
+  grid-column-start:1;
+  white-space: nowrap; /*keeps text in line on resize*/
+  filter:drop-shadow(5px 0px 0px silver);
+  min-height: 100%;
+  height: auto;
+}
+.navbar h1{
+  color: var(--title-color);
+  font-family: var(--title-font);
+  font-weight: 700;
+  font-size: 2rem;
+  font-style: italic;
+}
+.navbar h2{
+  color: var(--title-color);
+  font-family: var(--body-font);
+  font-weight: 400;
+  font-size: 2rem;
+  line-height:1rem;
+}
+.navbar ul,li{
+  color: var(--body-color);
+  font-family: var(--body-font);
+  font-weight: 400;
+  font-size: 1.5rem;
+  list-style-type: none;
+  padding-left:.5rem;
+  margin-left:0px;
+}
+.navbar a{
+	color:inherit;
+	text-decoration:none;
+}
+.navbar a:hover {
+  background-color: var(--highlight-color);
+}
+.current {
+  background-color: var(--highlight-color);
+}
+/*homepage*/
+.home-img{
+  object-fit:contain;
+  width:100%;
+  padding:2px;
+}
+/*videos page NEED TO FIX*/
+.canvas-videos{
+  display: grid;
+  grid-gap:10px;
+  background-color: var(--background-color);
+  grid-column-start:2;
+  grid-template-columns: 33.33% 33.33% 33.33%;
+}
+.canvas-videos div{
+  width:100%;
+  object-fit:contain;
+}
+.canvas-videos h1{
+  color: var(--title-color);
+  font-family: var(--title-font);
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin: 0;
+  display: inline-block;
+  padding:2px;
+}
+.canvas-videos p{
+  text-align: justify;
+  display: inline;
+  color: var(--body-color);
+  font-family: var(--body-font);
+  font-weight: 400;
+  font-size: 1.2rem;
+  padding:2px;
+}
+.canvas-videos img{
+  padding:2px;
+  max-width:560px;
+  width:100%;
+  max-height:315px;
+  height:100%;
+  object-fit:contain;
+  margin:0;
+}
+/*MEDIA QUERIES FOR RESISING FLEXBOX CONTENTS*/
+/*media queries
+@media screen and (max-width: 1200px) {
+  .column {
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .column {
+    flex: 100%;
+    max-width: 100%;
+  }
+*/
