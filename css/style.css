@@ -9,33 +9,87 @@
   --highlight-color: springgreen; /*rollover color for navbar*/
   font-size:62.5%; /*sets base font size; rest of font units scale from this*/
 }
-
-html{
+html,body{
   background-color:var(--background-color); /*set background color for the whole page*/
-}
-
-/*holds all page contents*/
-.wrapper{
-  margin: auto; /*center item*/
+  margin:0px;
   padding:0px;
-  width: 75vw; /*sets width to % of the view width*/
-  min-width: 945px; /*set up better scaling with media queries*/
-  display:flex;
-  justify-content:center;
-  align-items:stretch;
-  /*display: grid;
-  grid-template-columns: 20%;
-  grid-gap:5px;*/
 }
-
+/*Media Queries add context from the viewer's screen and alter the page's contents to fit*/
+@media(max-width: 2560px){  
+  .wrapper{
+  width: 75vw; /*width= % of the view width*/
+  flex-wrap:nowrap;/*all contents on one line*/
+  }
+  .canvas{
+  	min-width:50%;
+  }
+  .navbar{
+  	max-width:185px;
+  	border:solid;
+  	border-width:0px 5px 0px 0px;
+  	white-space: nowrap; /*keeps text in-line on resize*/
+  }
+  .info-column{
+  	max-width:450px;
+  	min-width:315px;
+  	flex-wrap:nowrap;
+  }
+}
+@media(max-width: 800px) {
+  .wrapper{
+  	width:90vw;
+    flex-wrap:wrap;/*contents can wrap to multiple lines*/
+  }
+  .canvas{
+    min-width:350px;
+  }
+  .navbar{
+  	max-width:100%;
+  	display:inline-block;
+  	border:solid;
+  	border-width:0px 0px 5px 0px;
+  }
+  .row{
+    flex-wrap:nowrap;
+  }
+  /*DOES NOT LOOK GOOD RIGHT NOW. NEEDS DROPDOWN FOR PROJECTS OR SOMETHING TO WORK
+  .navbar h1,h2,ul,li{
+  	display:inline-block;
+  }*/
+  .info-row{
+  	width:100%;
+  	flex-wrap:wrap;
+  	justify-content:center;
+  }
+  .info-column{
+  	width:100%;
+  }
+ }
+ @media(max-width: 400px) {
+   .row,.column{
+ 	  flex-wrap:wrap;
+ 	}
+ 	.column img{
+ 	  flex:100%;	
+ 	  max-width:100%;
+ 	}
+ }
+.wrapper{ /*holds all page contents*/
+  margin: auto; /*center item*/
+  padding:5px;
+  /*flexbox settings*/
+  display:flex;/*initiate flexbox*/
+  justify-content:center;/*contents align to center of container*/
+  align-items:stretch;/*contents stretch vertically to the bounds of the container*/
+ }
 /*main area where all unique page info is rendered*/
 .canvas{
-  margin: 0px; /*center item*/
+  margin: auto; /*center item*/
   padding:0px;
-  order:2;
-  flex:1 2 86%;
-  object-fit:cover;
-  /*grid-column-start:2;*/
+  object-fit:cover; /*contents fill container proportionally*/
+  /*flexbox settings*/
+  order:2;/*sets what place in order of flexbox items*/
+  flex:1 2 86%;/*flex shrink,flex grow, default size*/
 }
 .canvas div{
   margin:0px;
@@ -105,21 +159,27 @@ html{
   padding-right:0px;
   justify-content: center;
 }
+.info-row {
+  display: flex;
+  margin:0px;
+  padding:1rem;
+  padding-right:0px;
+}
 .column {
   margin:0px;
   padding:1rem;
-  flex:.5;
+  flex:50%;
   max-width: 50%;
 }
 .column img {
   margin-top: 5px;
   vertical-align: middle;
   width: 100%;
+  max-width:100%;
 }
 .info-column {
   padding:0px;
-  flex:1;
-  max-width:50%;
+  flex:100%;
 }
 .center-vid{/*Use for one video centered on page*/
   margin:5px;
@@ -133,25 +193,20 @@ html{
   min-height:340px;
   display:block;
 }
-
 /*navbar styles*/
 .navbar{
+  width:100%;
   margin:0px;
-  padding:0px;
-  /*grid-column-start:1;*/
+  padding:2px;
+  border-color:var(--body-color);
+  height: auto;
+  /*flexbox settings*/
   order:1;
   flex:1 1 14%;
-  white-space: nowrap; /*keeps text in line on resize*/
-  border:solid;
-  border-color:var(--body-color);
-  border-right-width:5px;
-  border-top-width:0px;
-  border-bottom-width:0px;
-  border-left-width:0px;
-  min-height: 99%;
-  height: auto;
 }
 .navbar h1{
+  margin:0px;
+  padding:0px;
   color: var(--title-color);
   font-family: var(--title-font);
   font-weight: 700;
@@ -230,17 +285,3 @@ html{
   object-fit:contain;
   margin:0;
 }
-/*MEDIA QUERIES FOR RESISING FLEXBOX CONTENTS*/
-/*media queries
-@media screen and (max-width: 1200px) {
-  .column {
-    flex: 50%;
-    max-width: 50%;
-  }
-}
-@media screen and (max-width: 600px) {
-  .column {
-    flex: 100%;
-    max-width: 100%;
-  }
-*/
