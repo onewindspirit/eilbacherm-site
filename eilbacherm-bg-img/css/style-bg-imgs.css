@@ -1,0 +1,308 @@
+/*Global Custom Properties*/
+:root{
+  --background-color: whitesmoke; /*background color for the entire page*/
+  --background-color-trans:rgba(105, 105, 105,0.5);
+  --body-font: 'Roboto', sans-serif; /*primary font used for body text, etc.*/
+  --body-color: dimgray; /*color for body text, etc.*/
+  --title-font: 'Montserrat', sans-serif; /*secondary font used for headers, title, etc.*/
+  --title-color: black; /*color for title font, etc.*/
+  --link-color: steelblue; /*color for links, special attention, etc.*/
+  --highlight-color: springgreen; /*rollover color for navbar*/
+  font-size:62.5%; /*sets base font size; rest of font units scale from this*/
+}
+
+html,body{
+  background-color:var(--background-color); /*set background color for the whole page*/
+  margin: 0px;
+  padding: 0px;
+}
+/*Media Queries add context from the viewer's screen and alter the page's contents to fit*/
+@media(max-width: 2560px){  
+  .wrapper{
+  width: 75vw; /*width= % of the view width*/
+  flex-wrap:nowrap;/*all contents on one line*/
+  }
+  .canvas{
+    min-width:50%;
+  }
+  .navbar{
+    max-width:185px;
+    border:solid;
+    border-width:0px 5px 0px 0px;
+    white-space: nowrap; /*keeps text in-line on resize*/
+  }
+  .info-column{
+    max-width:450px;
+    min-width:315px;
+    flex-wrap:nowrap;
+  }
+}
+@media(max-width: 800px) {
+  .wrapper{
+    width:90vw;
+    flex-wrap:wrap;/*contents can wrap to multiple lines*/
+  }
+  .canvas{
+    min-width:350px;
+  }
+  .navbar{
+    max-width:100%;
+    display:inline-block;
+    border:solid;
+    border-width:0px 0px 5px 0px;
+  }
+  .row{
+    flex-wrap:nowrap;
+  }
+  /*DOES NOT LOOK GOOD RIGHT NOW. NEEDS DROPDOWN FOR PROJECTS OR SOMETHING TO WORK
+  .navbar h1,h2,ul,li{
+    display:inline-block;
+  }*/
+  .info-row{
+    width:100%;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+  .info-column{
+    width:100%;
+  }
+ }
+ @media(max-width: 400px) {
+   .row,.column{
+    flex-wrap:wrap;
+  }
+  .column img{
+    flex:100%;  
+    max-width:100%;
+  }
+ }
+.bg-image{
+  background-image:url(../images/Sef1.jpg);/*replace with code*/
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  height:100vh;
+  width:100vw;
+  margin:0px;
+  padding:0px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow:hidden;
+}
+.wrapper{ /*holds all page contents*/
+  margin: auto; /*center item*/
+  padding:5px;
+  /*flexbox settings*/
+  display:flex;/*initiate flexbox*/
+  justify-content:center;/*contents align to center of container*/
+  align-items:stretch;/*contents stretch vertically to the bounds of the container*/
+  position:absolute;
+  top:5vh;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+ }
+/*main area where all unique page info is rendered*/
+.canvas{
+  margin: auto; /*center item*/
+  padding:0px;
+  object-fit:cover; /*contents fill container proportionally*/
+  /*flexbox settings*/
+  order:2;/*sets what place in order of flexbox items*/
+  flex:1 2 86%;/*flex shrink,flex grow, default size*/
+}
+.canvas div{
+  margin:0px;
+  padding:2px;
+  width:100%;
+  object-fit:contain;
+}
+.canvas p{
+  margin:2px;
+  margin-right:5px;
+  padding:2px;
+  color: var(--body-color);
+  font-family: var(--body-font);
+  font-weight: 400;
+  font-size: 1.5rem;
+  text-align:justify;
+}
+.p-small{
+  margin:0px;
+  padding:2px;
+  color: var(--body-color);
+  font-family: var(--body-font);
+  font-weight: 400;
+  font-size: 1.2rem;
+  list-style-type: none;
+  list-style-position:inside;
+}
+.canvas a{
+  color:var(--link-color);
+  text-decoration:none;
+}
+/*headings*/
+.canvas h1{  /*heading for Videos and Projects pages*/
+  margin:0px;
+  padding:2px;
+  color: var(--background-color);
+  font-family: var(--title-font);
+  font-weight: 700;
+  font-size: 2em;
+  text-align:center
+}
+.canvas h2{ /*heading for Info page*/
+  margin:0px;
+  padding:2px;
+  color: var(--background-color);
+  font-family: var(--title-font);
+  font-weight: 900;
+  font-size: 1.6em;
+  text-align:justify;
+}
+.canvas h3{ /*heading for Dates page*/
+  margin:0px;
+  padding:2px;
+  color: var(--body-color);
+  font-family: var(--title-font);
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+/*canvas content styling*/
+
+/*styles for image/video grids on project pages*/
+.row {
+  display: flex;
+  margin:0px;
+  padding:1rem;
+  padding-right:0px;
+  justify-content: center;
+}
+.info-row {
+  display: flex;
+  margin:0px;
+  padding:1rem;
+  padding-right:0px;
+}
+.column {
+  margin:0px;
+  padding:1rem;
+  flex:50%;
+  max-width: 50%;
+}
+.column img {
+  margin-top: 5px;
+  vertical-align: middle;
+  width: 100%;
+  max-width:100%;
+}
+.info-column {
+  padding:0px;
+  flex:100%;
+}
+.center-vid{/*Use for one video centered on page*/
+  margin:5px;
+  margin-left:auto;
+  margin-right:auto;
+  width:100%;
+  max-width:640px;
+  min-width:560px;
+  height:100%;
+  max-height:385px;
+  min-height:340px;
+  display:block;
+}
+/*navbar styles*/
+.navbar{
+  width:100%;
+  margin:0px;
+  padding:2px;
+  border-color:var(--body-color);
+  height: auto;
+  /*flexbox settings*/
+  order:1;
+  flex:1 1 14%;
+}
+.navbar h1{
+  margin:0px;
+  padding:0px;
+  color: var(--background-color);
+  font-family: var(--title-font);
+  font-weight: 700;
+  font-size: 2rem;
+  font-style: italic;
+}
+.navbar h2{
+  color: var(--background-color);
+  font-family: var(--body-font);
+  font-weight: 400;
+  font-size: 2rem;
+  line-height:1rem;
+}
+.navbar ul,li{
+  margin-left:0px;
+  padding-left:.5rem;
+  color: var(--body-color);
+  font-family: var(--body-font);
+  font-weight: 400;
+  font-size: 1.5rem;
+  list-style-type: none;
+  list-style-position:inside;
+}
+.navbar a{
+  color:inherit;
+  text-decoration:none;
+}
+.navbar a:hover {
+  background-color: var(--highlight-color);
+}
+.current {
+  background-color: var(--highlight-color);
+}
+/*homepage*/
+.home-img{
+  margin:0px;
+  padding:0px;
+  width:100%;
+}
+/*videos page NEED TO FIX*/
+.canvas-videos{
+  display: grid;
+  grid-gap:10px;
+  background-color: var(--background-color);
+  grid-column-start:2;
+  grid-template-columns: 33.33% 33.33% 33.33%;
+}
+.canvas-videos div{
+  width:100%;
+  object-fit:contain;
+}
+.canvas-videos h1{
+  color: var(--title-color);
+  font-family: var(--title-font);
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin: 0;
+  display: inline-block;
+  padding:2px;
+}
+.canvas-videos p{
+  text-align: justify;
+  display: inline;
+  color: var(--body-color);
+  font-family: var(--body-font);
+  font-weight: 400;
+  font-size: 1.2rem;
+  padding:2px;
+}
+.canvas-videos img{
+  padding:2px;
+  max-width:560px;
+  width:100%;
+  max-height:315px;
+  height:100%;
+  object-fit:contain;
+  margin:0;
+}
