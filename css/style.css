@@ -86,12 +86,26 @@ html,body{
   /*flexbox settings*/
   order:2;/*sets what place in order of flexbox items*/
   flex:1 2 86%;/*flex shrink,flex grow, default size*/
+  justify-content:center;
 }
-.canvas div{
+/*.canvas div{
   margin:0px;
   padding:2px;
   width:100%;
   object-fit:contain;
+}*/
+.canvas .body-text{
+  margin:auto;
+  padding:2px;
+  width:75%;
+  object-fit:contain;
+  text-align:justify;
+}
+.page-text li,ul{
+  margin-left:0px;
+  padding-left:0rem;
+  list-style-type: circle;
+  list-style-position:inside;
 }
 .canvas p{
   margin:2px;
@@ -101,7 +115,7 @@ html,body{
   font-family: var(--body-font);
   font-weight: 400;
   font-size: 1.5rem;
-  text-align:justify;
+  /*text-align:justify;*/
 }
 .list-small{
   margin:0px;
@@ -125,7 +139,7 @@ html,body{
   font-family: var(--title-font);
   font-weight: 700;
   font-size: 2em;
-  text-align:center
+  text-align:center;
 }
 .canvas h2{ /*heading for Info page*/
   margin:0px;
@@ -166,6 +180,31 @@ html,body{
   vertical-align: middle;
   width: 100%;
   max-width:100%;
+}
+/*styles for horizontal scrolling containers*/
+.horiz-container {
+  margin:5px;
+  padding:1rem;
+  width:auto;
+  border:solid;
+  border-color:var(--body-color);
+  border-width:3px;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+.horiz-container img,iframe{
+  margin:auto;
+  flex: 0 0 auto;
+  padding:2px;
+}
+.horiz-container img{
+  max-height:315px;
+  width:auto;
+}
+.horiz-container iframe{
+  width:560px;
+  height:315px;
 }
 .info-row {
   display: flex;
@@ -252,13 +291,21 @@ html,body{
   font-size: 2rem;
   line-height:1rem;
 }
+.navbar h3{
+  color: var(--title-color);
+  font-family: var(--body-font);
+  font-weight: 400;
+  font-size: 1.8rem;
+  line-height:1rem;
+    padding-left:1.5rem;
+}
 .navbar ul,li{
   margin-left:0px;
-  padding-left:.5rem;
+  padding-left:2rem;
   color: var(--body-color);
   font-family: var(--body-font);
   font-weight: 400;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   list-style-type: none;
   list-style-position:inside;
 }
@@ -277,4 +324,7 @@ html,body{
   margin:0px;
   padding:0px;
   width:100%;
+  /*max dimensions chosen based on original image used for testing. Will need adjustment when final set of home images are chosen*/
+  max-width:1250px;
+  max-height:780px;
 }
