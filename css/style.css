@@ -95,7 +95,7 @@ html,body{
   object-fit:contain;
 }*/
 .canvas .body-text{
-  margin:auto;
+  margin:2rem auto;
   padding:2px;
   width:75%;
   object-fit:contain;
@@ -108,14 +108,13 @@ html,body{
   list-style-position:inside;
 }
 .canvas p{
-  margin:2px;
-  margin-right:5px;
+  margin:auto;
   padding:2px;
   color: var(--body-color);
   font-family: var(--body-font);
   font-weight: 400;
   font-size: 1.5rem;
-  /*text-align:justify;*/
+  text-align:justify;
 }
 .list-small{
   margin:0px;
@@ -133,7 +132,7 @@ html,body{
 }
 /*headings*/
 .canvas h1{  /*heading for Videos and Projects pages*/
-  margin:0px;
+  margin:.5rem auto;
   padding:2px;
   color: var(--title-color);
   font-family: var(--title-font);
@@ -216,23 +215,25 @@ html,body{
   padding:0px;
   flex:100%;
 }
+/*will have to screw with the vid thumb stuff once i have the thumbs*/
 .column-vid{
   margin:0px;
   padding:1rem;
   flex:25%;
-  max-width: 25%; 
+  width:auto;
+  max-width: 25%;
 }
 .vid-thumb{/*wrap video thumbnails in these divs to keep everything at the same height*/
   margin:0;
   padding:0;
-  width:560px;
-  min-height:240px;
+  max-width:240px;
+  min-height:200px;
 }
 .vid-thumb img {
   margin: 5px auto;
   vertical-align: middle;
   width: 100%;
-  max-width:560px;
+  max-width:200px;
 }
 .column-vid h1{
   margin:0px;
@@ -241,7 +242,7 @@ html,body{
   font-family: var(--title-font);
   font-weight: 700;
   font-size: 1.2rem;
-  display:inline;
+  text-align:justify;
 }
 .column-vid p{
   margin:0px;
@@ -264,11 +265,19 @@ html,body{
   min-height:340px;
   display:block;
 }
+.inline-img{/*style for imagine inline in a block of text; CDR label image*/
+  /*will need adjustment once image is delivered*/
+  margin:0;
+  padding:0;
+  width:100%;
+  max-width:50px;
+  display:inline;
+}
 /*navbar styles*/
 .navbar{
   width:100%;
   margin:0px;
-  padding:2px;
+  padding:5px;
   border-color:var(--body-color);
   height: auto;
   /*flexbox settings*/
